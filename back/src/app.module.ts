@@ -26,7 +26,7 @@ import { SharedModule } from './shared/shared.module';
       AppValue,
       AppType,
     ]),
-    SharedModule
+    SharedModule,
   ],
   controllers: [
     AppController,
