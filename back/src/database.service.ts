@@ -111,8 +111,11 @@ export class DatabaseService {
     private async getAndSaveCharacters() {
         try {
             const findAllResponse = await this.characterService.findAll();
-            if (findAllResponse.success && findAllResponse.characters.length > 0)
+            console.log("🚀 ~ DatabaseService ~ getAndSaveCharacters ~ findAllResponse", findAllResponse.characters.length);
+            if (findAllResponse.success && findAllResponse.characters.length > 0) {
+                console.log('\x1b[34m', `Aucun characters ont été créés.`);
                 return;
+            }
             const getCharacters = await this.characterService.getCharactersFromAPI();
             if (!getCharacters.success)
                 return;
@@ -121,7 +124,6 @@ export class DatabaseService {
             console.log('\x1b[34m', `${getCharacters.characters.length} characters ont été récupérés.`);
             for (const character of getCharacters.characters) {
                 const save = await this.characterService.createOrUpdate(character);
-                console.log("🚀 ~ DatabaseService ~ getAndSaveCharacters ~ save", save);
                 if (save.success)
                     charactersSaved = charactersSaved + 1;
                 if (!save.success)
