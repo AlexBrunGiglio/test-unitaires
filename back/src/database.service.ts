@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { AppTypes, Gender, PresenceStatut, RolesList } from "../../shared/shared-constant";
 import { AppErrorWithMessage } from "./base/app-error";
 import { ReferentialService } from "./base/services/referential.service";
+import { CharactersService } from './modules/characters/characters.service';
 import { UserRoleDto } from "./modules/users-roles/user-role-dto";
 import { UserRoleService } from "./modules/users-roles/user-roles.service";
 import { UserDto } from "./modules/users/user-dto";
@@ -13,6 +14,7 @@ export class DatabaseService {
         private userService: UsersService,
         private userRoleService: UserRoleService,
         private referentialService: ReferentialService,
+        private characterService: CharactersService,
     ) {
 
     }
@@ -22,6 +24,7 @@ export class DatabaseService {
         await this.createDefaultTypes();
         await this.createDefaultRoles();
         await this.createDefaultUsers();
+        await this.getAndSaveCharacters();
     }
 
     private async createDefaultUsers() {
@@ -103,6 +106,31 @@ export class DatabaseService {
         }
         catch (err) {
             console.error(err);
+        }
+    }
+    private async getAndSaveCharacters() {
+        try {
+            const findAllResponse = await this.characterService.findAll();
+            if (findAllResponse.success && findAllResponse.characters.length > 0)
+                return;
+            const getCharacters = await this.characterService.getCharactersFromAPI();
+            if (!getCharacters.success)
+                return;
+            let charactersSaved = 0;
+            let charactersNotSaved = 0;
+            console.log('\x1b[34m', `${getCharacters.characters.length} characters ont été récupérés.`);
+            for (const character of getCharacters.characters) {
+                const save = await this.characterService.createOrUpdate(character);
+                console.log("🚀 ~ DatabaseService ~ getAndSaveCharacters ~ save", save);
+                if (save.success)
+                    charactersSaved = charactersSaved + 1;
+                if (!save.success)
+                    charactersNotSaved = charactersNotSaved + 1;
+            }
+            console.log('\x1b[34m', `${charactersSaved} characters ont été créés.`);
+            console.log('\x1b[34m', `${charactersNotSaved} characters ont échoués.`);
+        } catch (error) {
+            console.log(error);
         }
     }
 }
