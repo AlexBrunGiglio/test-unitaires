@@ -6,6 +6,7 @@ import { DatabaseService } from './database.service';
 import { Environment } from './environment/environment';
 import { AppType } from './modules/app-values/app-type.entity';
 import { AppValue } from './modules/app-values/app-value.entity';
+import { CommandModule } from './modules/commands/command.module';
 import { SharedModule } from './shared/shared.module';
 
 @Module({
@@ -27,6 +28,7 @@ import { SharedModule } from './shared/shared.module';
       AppType,
     ]),
     SharedModule,
+    CommandModule,
   ],
   controllers: [
     AppController,
