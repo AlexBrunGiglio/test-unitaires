@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToMany, OneToMany } from 'typeorm';
 import { UserDto } from './user-dto';
 import { UserRole } from '../users-roles/user-role.entity';
+import { Command } from '../commands/command.entity';
 
 @Entity({ name: 'users' })
 export class User {
@@ -32,6 +33,9 @@ export class User {
     disabled: boolean;
     @Column('varchar', { name: 'refreshToken', length: 36, nullable: true })
     refreshToken?: string;
+    @OneToMany(() => Command, command => command.user, { cascade: true })
+    commands: Command[];
+
     public toDto(getPassword = false): UserDto {
         return {
             id: this.id,
