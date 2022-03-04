@@ -123,6 +123,7 @@ export class DatabaseService {
             let charactersNotSaved = 0;
             console.log('\x1b[34m', `${getCharacters.characters.length} characters ont été récupérés.`);
             for (const character of getCharacters.characters) {
+                character.price = Math.floor(Math.random() * 100) + 1;
                 const save = await this.characterService.createOrUpdate(character);
                 if (save.success)
                     charactersSaved = charactersSaved + 1;
