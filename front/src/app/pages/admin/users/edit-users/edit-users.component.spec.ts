@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { EditUsersComponent } from './edit-users.component';
 
@@ -8,9 +11,12 @@ describe('EditUsersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditUsersComponent ]
+      declarations: [EditUsersComponent],
+      imports: [HttpClientModule],
+      providers: [MatSnackBar],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

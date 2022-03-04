@@ -14,8 +14,8 @@ import { BaseComponent } from '../../../base/base.component';
 
 export class LoginComponent extends BaseComponent implements OnInit {
   hide = true;
-  loginViewModel: LoginViewModel;
-  errorMsg: string;
+  loginViewModel = {} as LoginViewModel;
+  errorMsg: string = '';
   constructor(
     private authService: AuthService,
     private router: Router,

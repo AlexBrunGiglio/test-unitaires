@@ -1,3 +1,4 @@
+import { OverlayModule } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BasePageModulesList } from '../../../app.module';
@@ -12,6 +13,7 @@ const routes = [{
     imports: [
         RouterModule.forChild(routes),
         ...BasePageModulesList,
+        OverlayModule
     ],
     declarations: [
         HomePublicComponent,

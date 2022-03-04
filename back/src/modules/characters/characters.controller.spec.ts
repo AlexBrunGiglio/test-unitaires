@@ -20,12 +20,11 @@ describe('CharactersController', () => {
         charactersController = moduleRef.get<CharactersController>(CharactersController);
     });
 
-    describe('findAll', () => {
-        it('should return an array of characters', async () => {
-            const result: CharacterDto[] = [];
-            jest.spyOn(charactersService, 'findAll').mockImplementation(() => result as any);
-
-            expect(await charactersController.getAll()).toBe(result);
-        });
+    describe('Find all characters', async () => {
+        it('should return all characters', () => {
+            const getAllCharachters = charactersController.getAll();
+            expect(getAllCharachters).rejects.toBeInstanceOf([CharacterDto]);
+        }
+        )
     });
 });

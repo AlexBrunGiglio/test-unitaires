@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { BasePageModulesList } from "../../../../app.module";
 import { AdminDrawerModule } from "../../../../components/admin-drawer/admin-drawer.module";
@@ -19,5 +19,6 @@ const routes = [{
         UsersListComponent
     ],
     exports: [RouterModule],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UsersListModule { }

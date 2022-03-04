@@ -1,4 +1,9 @@
+import { OverlayModule } from '@angular/cdk/overlay';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBar, MatSnackBarModule, MatSnackBarRef } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { DialogService } from '../../../../services/dialog.service';
 
 import { HomePublicComponent } from './home.component';
 
@@ -8,7 +13,12 @@ describe('HomePublicComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomePublicComponent]
+      declarations: [HomePublicComponent],
+      imports: [HttpClientModule, OverlayModule, MatSnackBarModule,],
+      providers: [Router, DialogService, {
+        provide: MatSnackBarRef,
+        useValue: {}
+      }],
     })
       .compileComponents();
   });
