@@ -1,7 +1,7 @@
-import { Controller, Get, HttpCode } from '@nestjs/common';
+import { Controller, Get, HttpCode, Param, Query } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { BaseController } from '../../base/base.controller';
-import { GetCharactersResponse } from './character-dto';
+import { GetCharacterResponse, GetCharactersResponse } from './character-dto';
 import { CharactersService } from './characters.service';
 
 @ApiTags('characters')
@@ -28,5 +28,13 @@ export class CharactersController extends BaseController {
     @HttpCode(200)
     async getAllFromAPI(): Promise<GetCharactersResponse> {
         return await this.characterService.getCharactersFromAPI();
+    }
+
+    @Get('get/:id')
+    @ApiOperation({ summary: 'Get character', operationId: 'getCharacter' })
+    @ApiResponse({ status: 200, description: 'Get character', type: GetCharacterResponse })
+    @HttpCode(200)
+    async get(@Param('id') id: string): Promise<GetCharacterResponse> {
+        return await this.characterService.findOne({ where: { id: id } });
     }
 }
