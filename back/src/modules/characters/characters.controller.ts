@@ -35,6 +35,6 @@ export class CharactersController extends BaseController {
     @ApiResponse({ status: 200, description: 'Get character', type: GetCharacterResponse })
     @HttpCode(200)
     async get(@Param('id') id: string): Promise<GetCharacterResponse> {
-        return await this.characterService.findOne({ where: { id: id } });
+        return await this.characterService.findOne({ where: { uid: id } });
     }
 }
