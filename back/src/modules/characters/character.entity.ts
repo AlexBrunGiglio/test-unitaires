@@ -21,6 +21,8 @@ export class Character {
     gender: string;
     @Column('varchar', { name: 'image', length: 100, nullable: true, })
     image: string;
+    @Column('varchar', { name: 'price', length: 100, })
+    price: number;
     @Column('varchar', { name: 'url', length: 100, nullable: true, })
     url: string;
     @Column({ name: 'created', nullable: true, type: 'datetime' })
@@ -38,6 +40,7 @@ export class Character {
             image: this.image,
             url: this.url,
             created: this.created,
+            price: this.price,
         }
     }
     public fromDto(dto: CharacterDto) {
@@ -51,6 +54,7 @@ export class Character {
         this.image = dto.image;
         this.url = dto.url;
         this.created = dto.created;
+        this.price = dto.price;
 
         if (!this.uid)
             this.uid = undefined;

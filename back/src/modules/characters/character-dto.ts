@@ -19,6 +19,8 @@ export class CharacterDto {
     @ApiPropertyOptional()
     gender?: string;
     @ApiPropertyOptional()
+    price?: number;
+    @ApiPropertyOptional()
     image?: string;
     @ApiPropertyOptional()
     url?: string;
