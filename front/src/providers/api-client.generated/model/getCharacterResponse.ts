@@ -9,19 +9,16 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { CharacterDto } from './characterDto';
 
 
-export interface CharacterDto { 
-    uid: string;
-    id?: string;
-    name?: string;
-    status?: string;
-    species?: string;
-    type?: string;
-    gender?: string;
-    price?: number;
-    image?: string;
-    url?: string;
-    created?: Date;
+export interface GetCharacterResponse { 
+    success: boolean;
+    message?: string;
+    error?: object;
+    statusCode?: number;
+    errorGuid?: string;
+    token?: string;
+    character: CharacterDto;
 }
 

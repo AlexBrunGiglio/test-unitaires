@@ -21,6 +21,7 @@ model/genericResponse.ts
 model/getAppTypeResponse.ts
 model/getAppTypesResponse.ts
 model/getAppValueResponse.ts
+model/getCharacterResponse.ts
 model/getCharactersResponse.ts
 model/getCommandResponse.ts
 model/getCommandsResponse.ts

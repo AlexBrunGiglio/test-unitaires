@@ -6,6 +6,7 @@ export * from './genericResponse';
 export * from './getAppTypeResponse';
 export * from './getAppTypesResponse';
 export * from './getAppValueResponse';
+export * from './getCharacterResponse';
 export * from './getCharactersResponse';
 export * from './getCommandResponse';
 export * from './getCommandsResponse';
