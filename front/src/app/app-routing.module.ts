@@ -17,7 +17,7 @@ import { RoutesList } from './routes/routes';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: RoutesList.AdminHome,
+    redirectTo: RoutesList.Home,
     pathMatch: 'full'
   },
   {
@@ -53,6 +53,11 @@ const routes: Routes = [
     loadChildren: () => import('../app/pages/admin/users/edit-users/edit-users.module').then(m => m.EditUsersModule),
     pathMatch: 'full',
     canActivate: [AuthGuard],
+  },
+  {
+    path: RoutesList.Home,
+    loadChildren: () => import('../app/pages/public/home/home.module').then(m => m.HomePublicModule),
+    pathMatch: 'full',
   },
   {
     path: RoutesList.Unauthorized,

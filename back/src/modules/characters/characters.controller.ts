@@ -14,11 +14,19 @@ export class CharactersController extends BaseController {
         super();
     }
 
-    @Get()
+    @Get('getAll/')
     @ApiOperation({ summary: 'Get all characters', operationId: 'getAllCharacters' })
     @ApiResponse({ status: 200, description: 'Get all characters', type: GetCharactersResponse })
     @HttpCode(200)
     async getAll(): Promise<GetCharactersResponse> {
+        return await this.characterService.findAll();
+    }
+
+    @Get('getFromAPI/')
+    @ApiOperation({ summary: 'Get all characters from API', operationId: 'getAllCharactersFromAPI' })
+    @ApiResponse({ status: 200, description: 'Get all characters from API', type: GetCharactersResponse })
+    @HttpCode(200)
+    async getAllFromAPI(): Promise<GetCharactersResponse> {
         return await this.characterService.getCharactersFromAPI();
     }
 }
