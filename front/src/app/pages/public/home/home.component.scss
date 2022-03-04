@@ -1,0 +1,34 @@
+app-home-public {
+    .container {
+        padding: 4vw;
+        width: 80vw;
+        text-align: center;
+    }
+    .d-flex  {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .card {
+        height: 40vh;
+        width: 20vw;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        .card-img {
+            height: 90vh;
+            width: 100%;
+            background-color: aliceblue;
+            background-position: top;
+        }
+        .card-txt {
+            text-align: center;
+        }
+    }
+    .custom-btn {
+        border: transparent;
+        border-radius: 10px;
+        height: 30px;
+        width: 150px;
+    }
+}

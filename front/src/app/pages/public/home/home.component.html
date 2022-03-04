@@ -1,1 +1,11 @@
-<p>home works!</p>
+<div class="container">
+    <div class="d-flex">
+        <div class="card" *ngFor="let character of characters">
+            <div class="card-img" [style.backgroundImage]="'url(' + character.image + ')'"></div>
+            <div class="card-txt"> {{character.name}} - ({{character.status}})</div>
+            <div>
+                <button class="custom-btn">Ajouter au panier</button>
+            </div>
+        </div>
+    </div>
+</div>
