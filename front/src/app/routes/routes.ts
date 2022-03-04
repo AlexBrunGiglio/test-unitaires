@@ -11,5 +11,5 @@ export const RoutesList = {
     AdminUsers: 'admin/users',
 
     Home: 'home',
-
+    Item: 'item',
 }
