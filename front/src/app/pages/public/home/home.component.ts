@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CharacterDto, CharactersService } from '../../../../providers/api-client.generated';
 import { DialogService } from '../../../../services/dialog.service';
+import { RoutesList } from '../../../routes/routes';
 
 @Component({
   selector: 'app-home-public',
@@ -10,6 +11,7 @@ import { DialogService } from '../../../../services/dialog.service';
 })
 export class HomePublicComponent implements OnInit {
   characters: CharacterDto[] = [];
+  routesList = RoutesList;
   constructor(
     private characterService: CharactersService,
     private dialogService: DialogService,
