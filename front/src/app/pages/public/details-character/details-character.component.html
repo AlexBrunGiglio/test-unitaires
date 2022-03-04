@@ -1,1 +1,34 @@
-<p>details-character works!</p>
+<div class="container">
+    <div class="d-flex">
+        <div class="card">
+            <div class="card-img" [style.backgroundImage]="'url(' + character.image + ')'"></div>
+            <div class="card-txt"> {{character.name}} - ({{character.status}})
+                <br>
+                <span>{{character.price}} <img height="15px" width="10px"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1200px-Ethereum_logo_2014.svg.png">
+                </span>
+            </div>
+        </div>
+        <div class="infos">
+            <p>
+                Status : {{character.status}}
+            </p>
+            <p>
+                Species : {{character.species}}
+            </p>
+            <p>
+                Type : {{character.type}}
+            </p>
+            <p>
+                Gender : {{character.gender}}
+            </p>
+            <p>
+                Created : {{character.created}}
+            </p>
+        </div>
+        <div>
+            <input placeholder="Quantité" type="number">
+            <button class="custom-btn">Ajouter au panier</button>
+        </div>
+    </div>
+</div>

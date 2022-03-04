@@ -1,3 +1,55 @@
 app-details-character {
-    
+    .container {
+        padding: 4vw;
+        width: 80vw;
+        text-align: center;
+    }
+    .d-flex  {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+    }
+    .card {
+        cursor: pointer;
+        height: 40vh;
+        width: 20vw;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        .card-img {
+            height: 600px;
+            width: 100%;
+            background-color: aliceblue;
+            background-position: top;
+        }
+        .card-txt {
+            text-align: center;
+            
+            span {
+                font-weight: 800;
+                color: cornflowerblue;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+            }
+        }
+    }
+    .custom-btn {
+        margin-top: 10px;
+        border: transparent;
+        border-radius: 10px;
+        height: 30px;
+        width: 150px;
+        background-color: cornflowerblue;
+        color: white;
+    }
+    input {
+        border: transparent;
+        height: 30px;
+        width: 100px;
+        
+    }
 }
