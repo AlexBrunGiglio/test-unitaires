@@ -3,6 +3,8 @@ README.md
 api.module.ts
 api/api.ts
 api/auth.service.ts
+api/characters.service.ts
+api/commands.service.ts
 api/default.service.ts
 api/referential.service.ts
 api/users.service.ts
@@ -13,10 +15,15 @@ git_push.sh
 index.ts
 model/appTypeDto.ts
 model/appValueDto.ts
+model/characterDto.ts
+model/commandDto.ts
 model/genericResponse.ts
 model/getAppTypeResponse.ts
 model/getAppTypesResponse.ts
 model/getAppValueResponse.ts
+model/getCharactersResponse.ts
+model/getCommandResponse.ts
+model/getCommandsResponse.ts
 model/getUserResponse.ts
 model/getUserRoleResponse.ts
 model/getUserRolesResponse.ts

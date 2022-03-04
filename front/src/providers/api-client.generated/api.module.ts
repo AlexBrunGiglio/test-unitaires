@@ -3,6 +3,8 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 import { AuthService } from './api/auth.service';
+import { CharactersService } from './api/characters.service';
+import { CommandsService } from './api/commands.service';
 import { DefaultService } from './api/default.service';
 import { ReferentialService } from './api/referential.service';
 import { UsersService } from './api/users.service';
