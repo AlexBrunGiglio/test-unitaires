@@ -27,8 +27,9 @@
             </p>
         </div>
         <div>
-            <input placeholder="Quantité" type="number">
-            <button class="custom-btn">Ajouter au panier</button>
+            <input placeholder="Quantité" type="number" [(ngModel)]="valueItem">
+            <button class="custom-btn" (click)="addCart(valueItem)">Ajouter au panier</button>
+            <button class="custom-btn" (click)="saveCart()">Confirmer Panier</button>
         </div>
     </div>
 </div>

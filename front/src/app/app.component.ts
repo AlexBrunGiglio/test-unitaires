@@ -5,6 +5,7 @@ import { AuthDataService } from '../services/auth-data.service';
 import { AuthProvider } from '../services/auth-provider';
 import { LocalStorageService } from '../services/local-storage.service';
 import { BaseComponent } from './base/base.component';
+import { RoutesList } from './routes/routes';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { BaseComponent } from './base/base.component';
 })
 export class AppComponent extends BaseComponent {
   title = 'front';
+  routesList = RoutesList;
   constructor(
     private router: Router,
     private authProvider: AuthProvider,

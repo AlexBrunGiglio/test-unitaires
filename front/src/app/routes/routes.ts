@@ -12,4 +12,5 @@ export const RoutesList = {
 
     Home: 'home',
     Item: 'item',
+    Shop: 'shop'
 }

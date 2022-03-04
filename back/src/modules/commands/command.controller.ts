@@ -30,7 +30,7 @@ export class CommandsController extends BaseController {
     @ApiResponse({ status: 200, description: 'Get command', type: GetCommandResponse })
     @HttpCode(200)
     async get(@Param('id') id: string): Promise<GetCommandResponse> {
-        return await this.commandService.findOne({ where: { id: id } });
+        return await this.commandService.findOne({ where: { userId: id } });
     }
 
     @Post()

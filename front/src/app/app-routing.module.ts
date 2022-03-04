@@ -65,6 +65,11 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: RoutesList.Shop,
+    loadChildren: () => import('../app/pages/public/cart/cart.module').then(m => m.CartModule),
+    pathMatch: 'full',
+  },
+  {
     path: RoutesList.Unauthorized,
     loadChildren: () => import('../app/pages/errors/unauthorized/unauthorized.module').then(m => m.UnauthorizedModule),
     pathMatch: 'full',
