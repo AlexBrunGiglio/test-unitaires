@@ -60,6 +60,11 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: RoutesList.Item + '/:id',
+    loadChildren: () => import('../app/pages/public/details-character/details-characters.module').then(m => m.DetailsCharacterModule),
+    pathMatch: 'full',
+  },
+  {
     path: RoutesList.Unauthorized,
     loadChildren: () => import('../app/pages/errors/unauthorized/unauthorized.module').then(m => m.UnauthorizedModule),
     pathMatch: 'full',
