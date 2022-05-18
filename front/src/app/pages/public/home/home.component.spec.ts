@@ -1,35 +1,24 @@
-import { OverlayModule } from '@angular/cdk/overlay';
-import { HttpClientModule } from '@angular/common/http';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatSnackBar, MatSnackBarModule, MatSnackBarRef } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
-import { DialogService } from '../../../../services/dialog.service';
-
-import { HomePublicComponent } from './home.component';
+import { environment } from '../../../../environments/environment';
+import { CharacterDto, CharactersService, GetCharactersResponse } from '../../../../providers/api-client.generated';
+let httpClientSpy: { get: jasmine.Spy; };
 
 describe('HomePublicComponent', () => {
-  let component: HomePublicComponent;
-  let fixture: ComponentFixture<HomePublicComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [HomePublicComponent],
-      imports: [HttpClientModule, OverlayModule, MatSnackBarModule,],
-      providers: [Router, DialogService, {
-        provide: MatSnackBarRef,
-        useValue: {}
-      }],
-    })
-      .compileComponents();
-  });
+  let characterService: CharactersService;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomePublicComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get', 'post']);
+    characterService = new CharactersService(<any>httpClientSpy, environment.apiBaseUrl, null);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should return list of characters', async () => {
+    const list: GetCharactersResponse = {
+      characters: [
+        { uid: "1", name: "Value 1" },
+        { uid: "2", name: "Value 2" },
+      ], success: true, filteredResults: {},
+    };
+    httpClientSpy.get.and.returnValue(list);
+    await characterService.getAllCharacters();
+    expect(httpClientSpy.get.and.returnValue(list));
   });
 });
